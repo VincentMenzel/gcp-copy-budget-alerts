@@ -16,12 +16,16 @@ def copy_budgets():
     budgets = client.list_budgets(parent=source_account_name)
 
     for budget in budgets:
-        # Clear etag since this is an update
-        del budget.etag
+        try:
+            # Clear etag since this is an update
+            del budget.etag
 
-        # Create the budget in the new billing account
-        client.create_budget(parent=target_account_name, budget=budget)
-        print(f"Copied budget: {budget.display_name}")
+            # Create the budget in the new billing account
+            client.create_budget(parent=target_account_name, budget=budget)
+            print(f"Copied budget: {budget.display_name}")
+
+        except Exception as e:
+            print(f"Error copying budget: {budget.display_name}. Err: {str(e)}")
 
 
 if __name__ == "__main__":
