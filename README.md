@@ -26,9 +26,7 @@ This script allows you to copy billing alerts (budgets) from one GCP billing acc
    pip install -r requirements.txt
    ```
 
-3. Download your Service Account key from the Google Cloud Console and save it as `service-account-key.json` in the root of the repository directory. Make sure this Service Account has the necessary permissions as mentioned above.
-
-4. Update the `SOURCE_BILLING_ACCOUNT_ID` and `TARGET_BILLING_ACCOUNT_ID` in the script with your respective GCP billing account IDs.
+3. Update the `SOURCE_BILLING_ACCOUNT_ID` and `TARGET_BILLING_ACCOUNT_ID` in the script with your respective GCP billing account IDs.
 
 ## Usage
 
