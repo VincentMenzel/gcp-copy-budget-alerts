@@ -16,9 +16,8 @@ def copy_budgets():
     budgets = client.list_budgets(parent=source_account_name)
 
     for budget in budgets:
-        # Modify the budget to be associated with the new billing account
-        del budget.name
-        budget.billing_account = target_account_name
+        # Clear etag since this is an update
+        del budget.etag
 
         # Create the budget in the new billing account
         client.create_budget(parent=target_account_name, budget=budget)
